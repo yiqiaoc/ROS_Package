@@ -1,0 +1,8 @@
+prefix=/home/yiqiao/ros_ws/devel
+
+Name: beginner_tutorials
+Description: Description of beginner_tutorials
+Version: 0.0.1
+Cflags: -I/home/yiqiao/ros_ws/devel/include
+Libs: -L/home/yiqiao/ros_ws/devel/lib 
+Requires: message_runtime

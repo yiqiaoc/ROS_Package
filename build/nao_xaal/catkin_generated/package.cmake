@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "nao_xaal")
+set(nao_xaal_MAINTAINER "Yiqiao CHEN <yiqiaoc@hotmail.com>")
+set(nao_xaal_DEPRECATED "")
+set(nao_xaal_VERSION "0.0.1")
+set(nao_xaal_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
+set(nao_xaal_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
+set(nao_xaal_BUILDTOOL_DEPENDS "catkin")
