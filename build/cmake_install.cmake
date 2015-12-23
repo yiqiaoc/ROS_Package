@@ -119,6 +119,7 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   INCLUDE("/home/yiqiao/ros_ws/build/gtest/cmake_install.cmake")
   INCLUDE("/home/yiqiao/ros_ws/build/beginner_tutorials/cmake_install.cmake")
   INCLUDE("/home/yiqiao/ros_ws/build/nao_xaal/cmake_install.cmake")
+  INCLUDE("/home/yiqiao/ros_ws/build/openni_tracker/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
