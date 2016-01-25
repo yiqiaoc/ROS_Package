@@ -2,27 +2,26 @@
 
 import smtplib
 from email.mime.text import MIMEText
-
-me = "naorobot@hotmail.com"
-you = "yiqiaoc@hotmail.com"
-pwd = "mynao1234"
-srv = "smtp.live.com"
+import config
 
 class Mail:
 
     def __init__(self, text):
+        self.fromaddr = config.getConfigInfo("NAO mail","compte")
+        self.toaddr = config.getConfigInfo("Contact list","user1")
         self.msg = MIMEText(text)
         self.msg['Subject'] = "Nao assistant : aide a la personne"
-        self.msg['From'] = me
-        self.msg['To'] = you
+        self.msg['From'] = self.fromaddr
+        self.msg['To'] = self.toaddr
 
     def sendMail(self):
         self.s = smtplib.SMTP(srv,587)
         self.s.ehlo()
         self.s.starttls()
         self.s.ehlo()
-        self.s.login(me, pwd)
-        self.s.sendmail(me, you, self.msg.as_string())
+        pwd = config.getConfigInfo("NAO mail", "pwd")
+        self.s.login(self.fromaddr, pwd)
+        self.s.sendmail(self.fromaddr, self.toaddr, self.msg.as_string())
         self.s.quit()
 
 

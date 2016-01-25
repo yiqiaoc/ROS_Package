@@ -4,8 +4,7 @@ from xAAL.core import Engine
 from xAAL.message import Message
 import ujson as json
 import sys
-from xAAL import tools
-from xAAL import config
+import config
 
 class xAALProxy:
 
@@ -19,7 +18,7 @@ class xAALProxy:
 
     def sendmsg(self, target, action):
         
-        addr = tools.getConfigFileAddr(target)
+        addr = config.getConfigInfo(target, "xaaladdr")
 
         msg = Message()
         msg.setTargets([addr])

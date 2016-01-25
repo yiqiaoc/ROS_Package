@@ -15,7 +15,6 @@ class NAO:
         rospy.init_node('nao', anonymous=True)
         self.controller = controller
         self.check_str = "salut mon amis, ca va"
-        self.end_str = "c'est pas grave"
         self.verifyState = 0 # 0 no answer, 1 for good situation, 2 for bad situation
         
     def moveToPerson(self):
@@ -32,13 +31,15 @@ class NAO:
         twist = Twist()
         rospy.loginfo("Stopping!")
         p.publish(twist)
+        rospy.loginfo("NAO moves to person")
 
-    def verifyPersonState(self):
+    def verifyPersonState(self, timeout):
+        rospy.loginfo("NAO will verify person state")
         self.say()
-        #self.hear()
+        self.response(timeout)
 
     def say(self):
-        for i in range(5):
+        for i in range(2):
             pub = rospy.Publisher('/speech', String, queue_size=10)
             rospy.loginfo(self.check_str)
             pub.publish(self.check_str)
@@ -46,10 +47,12 @@ class NAO:
             rospy.sleep(5)
         
     
-    def hear(self):
+    def response(self, timeout):
+        self.resetVerifyState()
+        
         client = actionlib.SimpleActionClient('speech_vocabulary_action', SetSpeechVocabularyAction)
         client.wait_for_server()
-        goal = SetSpeechVocabularyGoal(words = [self.end_str])
+        goal = SetSpeechVocabularyGoal(words = ["oui","non"])
     
         client.send_goal(goal)
         client.wait_for_result()
@@ -58,15 +61,25 @@ class NAO:
         rospy.wait_for_service('start_recognition')
         start = rospy.ServiceProxy('start_recognition', Empty)
         start()
+        
+        count = 0
+        while(not self.verifyState):
+            rospy.sleep(5)
+            count += 1
+            if(timeout != 0) and (count > timeout):
+                rospy.loginfo("wait person response timeout")
+                break
+        
+        stop = rospy.ServiceProxy('stop_recognition',Empty)
+        stop()
+
 
     def hearCallback(self, data):
         print "class NAO hearCallback"
         print data.words
         print data.confidence_values
-        if data.confidence_values[0] > 0.5 : self.verifyState = 1
+        if data.words[0] == "oui" and data.confidence_values[0] > 0.5 : self.verifyState = 1
         self.verifyState = 2
-        stop = rospy.ServiceProxy('stop_recognition',Empty)
-        stop()
 
     def getVerifyState(self):
         return self.verifyState

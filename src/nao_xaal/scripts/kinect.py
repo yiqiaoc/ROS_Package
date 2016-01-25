@@ -24,4 +24,5 @@ class Kinect:
 
             self.rate.sleep()
 
+        rospy.loginfo("Fall detected!")
         return True

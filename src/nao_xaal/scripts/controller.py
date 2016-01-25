@@ -4,6 +4,7 @@ from mail import Mail
 from kinect import Kinect
 from NAO import NAO
 from xaalproxy import xAALProxy
+import netifaces as ni
 import time
 
 class Controller:
@@ -12,29 +13,21 @@ class Controller:
         # TODO class config
         # self.conf = Config(xaalDevices)
         self.nao = NAO(self)
-        raw_input("after self.nao = NAO(self)")
         self.kinect = Kinect()
-        raw_input("after self.kinect = Kinect()")
         self.xaalproxy = xAALProxy()
-        raw_input("after self.xaalproxy = xAALProxy()")
 
     def run(self):
         print "====run===="
+        while(1):
         #if(self.kinect.fallDetection()):
-        if(True):
-            raw_input("kinect detecte fall")
             self.nao.moveToPerson()
-            raw_input("nao move to person")
-            self.nao.verifyPersonState()
-            raw_input("nao verifypersonstate")
-            if not self.waitPersonResponse(10): 
-                raw_input("person response negatif")
+            self.nao.verifyPersonState(5)
+            if not self.nao.getVerifyState()%2: 
                 self.scenario()
-                raw_input("control samrt devices")
                 self.sendMail()
-                raw_input("mail sended")
-                # while(!self.waitPersonResponse(0))
-                # how to return to the begin of scenario todo
+                # TODO last valide action to be defined
+                self.nao.response(0)
+                
 
     def waitPersonResponse(self, timeout):
         count = 0
@@ -57,15 +50,13 @@ class Controller:
         mail.sendMail()
 
     def webRTCaddress(self):
-        # TODO how to get the right ip address todo
-        import netifaces as ni
         ni.ifaddresses('wlan0')
-        ip = ni.ifaddresses('wlan0')[2][0]['addr']
+        ip = ni.ifaddresses('wlan0')[2][0]['addr'] + ":8080"
         print "HostIP : ", ip
         return ip
 
     def scenario(self):
-        self.smartDeviceAction("shutterleft", "down")
+        self.smartDeviceAction("shutterleft", "up")
         self.smartDeviceAction("shutterright", "up")
 
     def smartDeviceAction(self, device, action):
@@ -74,4 +65,7 @@ class Controller:
 
 if __name__== '__main__':
     c = Controller()
-    c.run()
+    try:
+        c.run()
+    except KeyboardInterrput:
+        print "Program Quit"
