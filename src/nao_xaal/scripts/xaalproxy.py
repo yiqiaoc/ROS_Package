@@ -22,11 +22,11 @@ class xAALProxy:
         addr = tools.getConfigFileAddr(target)
 
         msg = Message()
-        msg.setTargets(addr)
+        msg.setTargets([addr])
         msg.setDevtype('cli.experimental') # ?? todo
         msg.setMsgtype('request')
         msg.setAction(action)
-        msg.setSource(uuid)
+        msg.setSource(self.uuid)
         msg.setCipher("")
         msg.setSignature()
         txt = {"header":msg.getHeader(), "body":msg.getBody()}
@@ -35,5 +35,11 @@ class xAALProxy:
 
     def recvmsg(self):
 
-        data = app.getNetworkConnector().getData()
+        data = self.app.getNetworkConnector().getData()
         return data
+
+# simple test
+if __name__ == '__main__':
+    proxy = xAALProxy()
+    proxy.sendmsg("shutterleft","down")
+    proxy.sendmsg("shutterright","down")

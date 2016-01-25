@@ -15,23 +15,22 @@ def recognize():
     print "waiting for action server to start"
     client.wait_for_server()
     print "action server started, sending goal"
-    goal = SetSpeechVocabularyGoal(words = ["oui", "non", "nao"])
+    goal = SetSpeechVocabularyGoal(words = ["ca va", "salut", "comment va tu"])
     
     client.send_goal(goal)
     print "client send goal"
     client.wait_for_result()
     print "set vocabulary ", client.get_result()
 
-    #pub = rospy.Publisher('/speech_vocabulary_action/goal', SetSpeechVocabularyActionGoal, queue_size=10)
-    #pub.publish(goal)
-
     rospy.Subscriber("/word_recognized", WordRecognized, callback)
     print "subscribe word_recognized"
     rospy.wait_for_service('start_recognition')
     print "after wait for service"
     start = rospy.ServiceProxy('start_recognition', Empty)
+    stop =  rospy.ServiceProxy('stop_recognition', Empty)
     start()
-    rospy.spin()
+    rospy.sleep(10)
+    stop()
 
 if __name__ == '__main__':
     try:

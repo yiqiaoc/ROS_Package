@@ -224,6 +224,23 @@ LSB_RELEASE_EXECUTABLE:FILEPATH=/usr/bin/lsb_release
 //Path to a program.
 NOSETESTS:FILEPATH=/usr/bin/nosetests-2.7
 
+//Path where debug 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=
+
+//Path where release 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=
+
+OpenCV_CONFIG_PATH:FILEPATH=/usr/share/OpenCV
+
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/usr/share/OpenCV
+
+//Path where debug OpenCV libraries are located
+OpenCV_LIB_DIR_DBG:PATH=
+
+//Path where release OpenCV libraries are located
+OpenCV_LIB_DIR_OPT:PATH=
+
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
@@ -263,17 +280,38 @@ actionlib_DIR:PATH=/opt/ros/indigo/share/actionlib/cmake
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/indigo/share/actionlib_msgs/cmake
 
+//The directory containing a CMake configuration file for async_web_server_cpp.
+async_web_server_cpp_DIR:PATH=/opt/ros/indigo/share/async_web_server_cpp/cmake
+
 //Value Computed by CMake
 beginner_tutorials_BINARY_DIR:STATIC=/home/yiqiao/ros_ws/build/beginner_tutorials
 
 //Value Computed by CMake
 beginner_tutorials_SOURCE_DIR:STATIC=/home/yiqiao/ros_ws/src/beginner_tutorials
 
+//The directory containing a CMake configuration file for bond.
+bond_DIR:PATH=/opt/ros/indigo/share/bond/cmake
+
+//The directory containing a CMake configuration file for bondcpp.
+bondcpp_DIR:PATH=/opt/ros/indigo/share/bondcpp/cmake
+
+//The directory containing a CMake configuration file for camera_info_manager.
+camera_info_manager_DIR:PATH=/opt/ros/indigo/share/camera_info_manager/cmake
+
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/indigo/share/catkin/cmake
 
+//The directory containing a CMake configuration file for class_loader.
+class_loader_DIR:PATH=/opt/ros/indigo/share/class_loader/cmake
+
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/indigo/share/cpp_common/cmake
+
+//The directory containing a CMake configuration file for cv.
+cv_DIR:PATH=cv_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for cv_bridge.
+cv_bridge_DIR:PATH=/opt/ros/indigo/share/cv_bridge/cmake
 
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/indigo/share/gencpp/cmake
@@ -315,8 +353,11 @@ gtest_force_shared_crt:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 
+//The directory containing a CMake configuration file for image_transport.
+image_transport_DIR:PATH=/opt/ros/indigo/share/image_transport/cmake
+
 //Path to a library.
-lib:FILEPATH=/opt/ros/indigo/lib/libtf2.so
+lib:FILEPATH=/opt/ros/indigo/lib/libasync_web_server_cpp.so
 
 //The directory containing a CMake configuration file for message_filters.
 message_filters_DIR:PATH=/opt/ros/indigo/share/message_filters/cmake
@@ -333,6 +374,9 @@ nao_xaal_BINARY_DIR:STATIC=/home/yiqiao/ros_ws/build/nao_xaal
 //Value Computed by CMake
 nao_xaal_SOURCE_DIR:STATIC=/home/yiqiao/ros_ws/src/nao_xaal
 
+//The directory containing a CMake configuration file for nodelet.
+nodelet_DIR:PATH=/opt/ros/indigo/share/nodelet/cmake
+
 //Value Computed by CMake
 openni_tracker_BINARY_DIR:STATIC=/home/yiqiao/ros_ws/build/openni_tracker
 
@@ -341,6 +385,9 @@ openni_tracker_SOURCE_DIR:STATIC=/home/yiqiao/ros_ws/src/openni_tracker
 
 //The directory containing a CMake configuration file for orocos_kdl.
 orocos_kdl_DIR:PATH=/opt/ros/indigo/share/orocos_kdl
+
+//The directory containing a CMake configuration file for pluginlib.
+pluginlib_DIR:PATH=/opt/ros/indigo/share/pluginlib/cmake
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/indigo/share/rosconsole/cmake
@@ -372,6 +419,9 @@ rostime_DIR:PATH=/opt/ros/indigo/share/rostime/cmake
 //The directory containing a CMake configuration file for sensor_msgs.
 sensor_msgs_DIR:PATH=/opt/ros/indigo/share/sensor_msgs/cmake
 
+//The directory containing a CMake configuration file for smclib.
+smclib_DIR:PATH=/opt/ros/indigo/share/smclib/cmake
+
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/indigo/share/std_msgs/cmake
 
@@ -389,6 +439,36 @@ tf2_ros_DIR:PATH=/opt/ros/indigo/share/tf2_ros/cmake
 
 //The directory containing a CMake configuration file for tf.
 tf_DIR:PATH=/opt/ros/indigo/share/tf/cmake
+
+//Value Computed by CMake
+video_stream_opencv_BINARY_DIR:STATIC=/home/yiqiao/ros_ws/build/video_stream_opencv
+
+//Value Computed by CMake
+video_stream_opencv_SOURCE_DIR:STATIC=/home/yiqiao/ros_ws/src/video_stream_opencv
+
+//Value Computed by CMake
+webrtc_BINARY_DIR:STATIC=/home/yiqiao/ros_ws/build/webrtc_ros/webrtc
+
+//The directory containing a CMake configuration file for webrtc.
+webrtc_DIR:PATH=/home/yiqiao/ros_ws/devel/share/webrtc/cmake
+
+//Value Computed by CMake
+webrtc_SOURCE_DIR:STATIC=/home/yiqiao/ros_ws/src/webrtc_ros/webrtc
+
+//Value Computed by CMake
+webrtc_ros_BINARY_DIR:STATIC=/home/yiqiao/ros_ws/build/webrtc_ros/webrtc_ros
+
+//Value Computed by CMake
+webrtc_ros_SOURCE_DIR:STATIC=/home/yiqiao/ros_ws/src/webrtc_ros/webrtc_ros
+
+//Dependencies for the target
+webrtc_ros_server_LIB_DEPENDS:STATIC=general;/opt/ros/indigo/lib/libcv_bridge.so;general;/usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_superres.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_stitching.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_photo.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_ocl.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_ml.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_legacy.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_gpu.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_flann.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_features2d.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_core.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_contrib.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.2.4.8;general;/opt/ros/indigo/lib/libimage_transport.so;general;/opt/ros/indigo/lib/libmessage_filters.so;general;/opt/ros/indigo/lib/libnodeletlib.so;general;/opt/ros/indigo/lib/libbondcpp.so;general;/usr/lib/x86_64-linux-gnu/libuuid.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/indigo/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/indigo/lib/libroslib.so;general;/opt/ros/indigo/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/opt/ros/indigo/lib/librosconsole.so;general;/opt/ros/indigo/lib/librosconsole_log4cxx.so;general;/opt/ros/indigo/lib/librosconsole_backend_interface.so;general;/usr/lib/liblog4cxx.so;general;/opt/ros/indigo/lib/libxmlrpcpp.so;general;/opt/ros/indigo/lib/libroscpp_serialization.so;general;/opt/ros/indigo/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/opt/ros/indigo/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so;general;/opt/ros/indigo/lib/libasync_web_server_cpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jsoncpp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_yuv.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_peerconnection.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jpeg_turbo.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_base.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_common.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_base_approved.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_crssl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_media.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_render_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_utility.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_coding_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_CNG.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_audio.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_system_wrappers.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_openmax_dl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_audio_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_encoder_interface.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_G711.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_G722.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iLBC.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iSAC.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_decoder_interface.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iSACFix.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_PCM16B.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_red.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_opus.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_opus.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_neteq.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_media_file.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_video.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_engine_core.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtp_rtcp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_paced_sender.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_remote_bitrate_estimator.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_bitrate_controller.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_capture_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_video_coding.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_i420.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_coding_utility.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_vp8.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_mmx.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_ssse3.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_sse4_1.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_avx2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_vp9.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_processing.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_processing_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_voice_engine.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_conference_mixer.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_processing.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audioproc_debug_proto.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_protobuf_lite.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_processing_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_device.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_sound.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_field_trial_default.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_metrics_default.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_xmllite.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_xmpp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_p2p.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_usrsctplib.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_capture_module_internal_impl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_render_module_internal_impl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_p2p.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_srtp.a;general;-ldl;general;-lrt;general;-lnss3;general;-lnssutil3;general;-lsmime3;general;-lplds4;general;-lplc4;general;-lnspr4;general;-lexpat;general;-lm;general;-lX11;general;-lXext /home/yiqiao/ros_ws/devel/lib/libwebrtc_jsoncpp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_yuv.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_peerconnection.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jpeg_turbo.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_base.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_common.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_base_approved.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_crssl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_media.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_render_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_utility.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_coding_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_CNG.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_audio.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_system_wrappers.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_openmax_dl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_audio_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_encoder_interface.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_G711.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_G722.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iLBC.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iSAC.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_decoder_interface.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iSACFix.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_PCM16B.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_red.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_opus.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_opus.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_neteq.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_media_file.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_video.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_engine_core.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtp_rtcp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_paced_sender.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_remote_bitrate_estimator.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_bitrate_controller.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_capture_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_video_coding.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_i420.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_coding_utility.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_vp8.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_mmx.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_ssse3.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_sse4_1.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_avx2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_vp9.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_processing.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_processing_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_voice_engine.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_conference_mixer.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_processing.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audioproc_debug_proto.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_protobuf_lite.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_processing_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_device.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_sound.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_field_trial_default.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_metrics_default.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_xmllite.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_xmpp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_p2p.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_usrsctplib.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_capture_module_internal_impl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_render_module_internal_impl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_p2p.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_srtp.a;general;-ldl;general;-lrt;general;-lnss3;general;-lnssutil3;general;-lsmime3;general;-lplds4;general;-lplc4;general;-lnspr4;general;-lexpat;general;-lm;general;-lX11;general;-lXext /home/yiqiao/ros_ws/devel/lib/libwebrtc_jsoncpp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_yuv.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_peerconnection.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jpeg_turbo.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_base.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_common.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_base_approved.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_crssl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_media.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_render_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_utility.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_coding_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_CNG.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_audio.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_system_wrappers.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_openmax_dl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_audio_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_encoder_interface.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_G711.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_G722.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iLBC.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iSAC.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_decoder_interface.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iSACFix.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_PCM16B.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_red.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_opus.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_opus.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_neteq.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_media_file.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_video.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_engine_core.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtp_rtcp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_paced_sender.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_remote_bitrate_estimator.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_bitrate_controller.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_capture_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_video_coding.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_i420.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_coding_utility.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_vp8.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_mmx.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_ssse3.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_sse4_1.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_avx2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_vp9.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_processing.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_processing_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_voice_engine.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_conference_mixer.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_processing.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audioproc_debug_proto.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_protobuf_lite.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_processing_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_device.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_sound.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_field_trial_default.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_metrics_default.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_xmllite.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_xmpp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_p2p.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_usrsctplib.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_capture_module_internal_impl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_render_module_internal_impl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_p2p.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_srtp.a;general;-ldl;general;-lrt;general;-lnss3;general;-lnssutil3;general;-lsmime3;general;-lplds4;general;-lplc4;general;-lnspr4;general;-lexpat;general;-lm;general;-lX11;general;-lXext /home/yiqiao/ros_ws/devel/lib/libwebrtc_jsoncpp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_yuv.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_peerconnection.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jpeg_turbo.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_base.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_common.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_base_approved.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_crssl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_media.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_render_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_utility.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_coding_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_CNG.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_audio.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_system_wrappers.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_openmax_dl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_audio_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_encoder_interface.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_G711.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_G722.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iLBC.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iSAC.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_decoder_interface.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_iSACFix.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_PCM16B.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_red.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_opus.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_opus.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_neteq.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_media_file.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_common_video.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_engine_core.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtp_rtcp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_paced_sender.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_remote_bitrate_estimator.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_bitrate_controller.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_capture_module.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_video_coding.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_i420.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_coding_utility.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_vp8.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_mmx.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_ssse3.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_sse4_1.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_vpx_intrinsics_avx2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_webrtc_vp9.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_processing.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_processing_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_voice_engine.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_conference_mixer.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_processing.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audioproc_debug_proto.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_protobuf_lite.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_processing_sse2.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_audio_device.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_sound.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_field_trial_default.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_metrics_default.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_xmllite.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_xmpp.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_rtc_p2p.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_usrsctplib.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_capture_module_internal_impl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_video_render_module_internal_impl.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_jingle_p2p.a;general;/home/yiqiao/ros_ws/devel/lib/libwebrtc_srtp.a;general;-ldl;general;-lrt;general;-lnss3;general;-lnssutil3;general;-lsmime3;general;-lplds4;general;-lplc4;general;-lnspr4;general;-lexpat;general;-lm;general;-lX11;general;-lXext;general;webrtc_ros_server_noncpp11;
+
+//Dependencies for the target
+webrtc_ros_server_nodelet_LIB_DEPENDS:STATIC=general;/opt/ros/indigo/lib/libcv_bridge.so;general;/usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_superres.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_stitching.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_photo.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_ocl.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_ml.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_legacy.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_gpu.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_flann.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_features2d.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_core.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_contrib.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.2.4.8;general;/opt/ros/indigo/lib/libimage_transport.so;general;/opt/ros/indigo/lib/libmessage_filters.so;general;/opt/ros/indigo/lib/libnodeletlib.so;general;/opt/ros/indigo/lib/libbondcpp.so;general;/usr/lib/x86_64-linux-gnu/libuuid.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/indigo/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/indigo/lib/libroslib.so;general;/opt/ros/indigo/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/opt/ros/indigo/lib/librosconsole.so;general;/opt/ros/indigo/lib/librosconsole_log4cxx.so;general;/opt/ros/indigo/lib/librosconsole_backend_interface.so;general;/usr/lib/liblog4cxx.so;general;/opt/ros/indigo/lib/libxmlrpcpp.so;general;/opt/ros/indigo/lib/libroscpp_serialization.so;general;/opt/ros/indigo/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/opt/ros/indigo/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so;general;/opt/ros/indigo/lib/libasync_web_server_cpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;webrtc_ros_server;
+
+//Dependencies for the target
+webrtc_ros_server_noncpp11_LIB_DEPENDS:STATIC=general;/opt/ros/indigo/lib/libcv_bridge.so;general;/usr/lib/x86_64-linux-gnu/libopencv_videostab.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_video.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_superres.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_stitching.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_photo.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_ocl.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_objdetect.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_ml.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_legacy.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_highgui.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_gpu.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_flann.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_features2d.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_core.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_contrib.so.2.4.8;general;/usr/lib/x86_64-linux-gnu/libopencv_calib3d.so.2.4.8;general;/opt/ros/indigo/lib/libimage_transport.so;general;/opt/ros/indigo/lib/libmessage_filters.so;general;/opt/ros/indigo/lib/libnodeletlib.so;general;/opt/ros/indigo/lib/libbondcpp.so;general;/usr/lib/x86_64-linux-gnu/libuuid.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/indigo/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/indigo/lib/libroslib.so;general;/opt/ros/indigo/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/opt/ros/indigo/lib/librosconsole.so;general;/opt/ros/indigo/lib/librosconsole_log4cxx.so;general;/opt/ros/indigo/lib/librosconsole_backend_interface.so;general;/usr/lib/liblog4cxx.so;general;/opt/ros/indigo/lib/libxmlrpcpp.so;general;/opt/ros/indigo/lib/libroscpp_serialization.so;general;/opt/ros/indigo/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/opt/ros/indigo/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so;general;/opt/ros/indigo/lib/libasync_web_server_cpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;
 
 //The directory containing a CMake configuration file for xmlrpcpp.
 xmlrpcpp_DIR:PATH=/opt/ros/indigo/share/xmlrpcpp/cmake
@@ -495,7 +575,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=5
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -557,6 +637,16 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_DBG
+OpenCV_3RDPARTY_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_OPT
+OpenCV_3RDPARTY_LIB_DIR_OPT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_CONFIG_PATH
+OpenCV_CONFIG_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_DBG
+OpenCV_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_OPT
+OpenCV_LIB_DIR_OPT-ADVANCED:INTERNAL=1
 OpenNI_CFLAGS:INTERNAL=-I/usr/include/ni
 OpenNI_CFLAGS_I:INTERNAL=
 OpenNI_CFLAGS_OTHER:INTERNAL=

@@ -1,2 +1,2 @@
-beginner_tutorials:nao_xaal:openni_tracker
+beginner_tutorials:nao_xaal:openni_tracker:video_stream_opencv:webrtc_ros/webrtc:webrtc_ros/webrtc_ros
 -DCATKIN_DEVEL_PREFIX=/home/yiqiao/ros_ws/devel -DCMAKE_INSTALL_PREFIX=/home/yiqiao/ros_ws/install -G Unix Makefiles
