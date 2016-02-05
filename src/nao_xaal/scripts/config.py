@@ -16,7 +16,6 @@ def loadConfigFile(filepath):
 
 def getConfigInfo(section, info):
     configFile = getConfigFile()
-    print "config path ", configFile
     cfg = loadConfigFile(configFile)
     if cfg != None:
         # TODO exception ? 

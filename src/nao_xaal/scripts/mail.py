@@ -15,6 +15,7 @@ class Mail:
         self.msg['To'] = self.toaddr
 
     def sendMail(self):
+        srv = config.getConfigInfo("Server SMTP", "server")
         self.s = smtplib.SMTP(srv,587)
         self.s.ehlo()
         self.s.starttls()

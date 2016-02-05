@@ -2,6 +2,7 @@
 
 from xAAL.core import Engine
 from xAAL.message import Message
+from xAAL import tools
 import ujson as json
 import sys
 import config
@@ -40,5 +41,5 @@ class xAALProxy:
 # simple test
 if __name__ == '__main__':
     proxy = xAALProxy()
-    proxy.sendmsg("shutterleft","down")
-    proxy.sendmsg("shutterright","down")
+    proxy.sendmsg("shutterleft","up")
+    proxy.sendmsg("shutterright","up")

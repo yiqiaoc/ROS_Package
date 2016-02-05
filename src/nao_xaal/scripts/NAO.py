@@ -35,14 +35,14 @@ class NAO:
 
     def verifyPersonState(self, timeout):
         rospy.loginfo("NAO will verify person state")
-        self.say()
+        self.say(self.check_str)
         self.response(timeout)
 
-    def say(self):
+    def say(self, words):
         for i in range(2):
             pub = rospy.Publisher('/speech', String, queue_size=10)
-            rospy.loginfo(self.check_str)
-            pub.publish(self.check_str)
+            rospy.loginfo(words)
+            pub.publish(words)
             print "NAO say sth"
             rospy.sleep(5)
         
@@ -78,8 +78,10 @@ class NAO:
         print "class NAO hearCallback"
         print data.words
         print data.confidence_values
-        if data.words[0] == "oui" and data.confidence_values[0] > 0.5 : self.verifyState = 1
-        self.verifyState = 2
+        if data.words[0] == "oui" and data.confidence_values[0] > 0.4 : 
+            self.verifyState = 1
+        else :
+            self.verifyState = 2
 
     def getVerifyState(self):
         return self.verifyState
