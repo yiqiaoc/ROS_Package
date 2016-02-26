@@ -15,24 +15,20 @@ class Controller:
         self.xaalproxy = xAALProxy()
 
     def run(self):
-        print "====run===="
-        #while(1):
-        if(self.kinect.fallDetection()):
-            self.nao.say("detecter la chute")
-            self.nao.moveToPerson()
-            self.nao.verifyPersonState(5)
-            if not self.nao.getVerifyState()%2:
-                self.nao.say("Ne t'inquiete pas, je vais demander à quelqu'un pour t'aider")
-                print "verifystate ", self.nao.getVerifyState()
-                self.scenario()
-                self.nao.say("porte ouverte, volet remonte")
-                self.sendMail()
-                self.nao.say("mail envoye")
-                # TODO last valide action to be defined
-                self.nao.response(0)
-                self.nao.say("merci d'être venu")
-            else :
-                self.nao.say("tres bien")
+        while(raw_input("continu ? (Y/N)")=="Y"):
+	    if(self.kinect.fallDetection()):
+	        self.nao.say("detecter la chute")
+	        self.nao.say("detecter la chute")
+	        self.nao.moveToPerson()
+	        self.nao.verifyPersonState(5)
+	        if not self.nao.getVerifyState()%2:
+	            self.nao.say("Ne t'inquiete pas, je vais demander a quelqu'un pour t'aider")
+	            print "verifystate ", self.nao.getVerifyState()
+	            self.scenario()
+	            self.nao.response(0)
+	            self.nao.say("merci d'etre venu")
+	        else :
+	            self.nao.say("tres bien")
                 
 
     def waitPersonResponse(self, timeout):
@@ -64,6 +60,17 @@ class Controller:
     def scenario(self):
         self.smartDeviceAction("shutterleft", "up")
         self.smartDeviceAction("shutterright", "up")
+        self.smartDeviceAction("lamp1", "on")
+        self.smartDeviceAction("lamp2", "on")
+        self.smartDeviceAction("lamp3", "on")
+	self.nao.say("porte ouverte, volet remonte")
+        self.smartDeviceAction("switch", "off")
+	self.nao.say("l'electricite coupe")
+	self.sendMail()
+	self.nao.say("mail envoye")
+        self.smartDeviceAction("mobilephone","inform", "msg", "J'ai detecte un probleme. Votre ami a fait un malaise. Venez l'aider.")
+	self.nao.say("message vocal envoye")
+        
 
     def smartDeviceAction(self, device, action):
         self.xaalproxy.sendmsg(device, action)

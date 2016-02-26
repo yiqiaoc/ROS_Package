@@ -14,10 +14,6 @@ if __name__ == '__main__':
             (trans1, rot1) = listener.lookupTransform('/openni_depth_frame', '/neck_1', rospy.Time(0))
             (trans2, rot2) = listener.lookupTransform('/openni_depth_frame', '/left_hip_1', rospy.Time(0))
 
-            print "distance X between neck and left hip : "
-            print trans1[0] - trans2[0]
-            print "distance Y between neck and left hip : "
-            print trans1[1] - trans2[1]
             print "distance z between neck and left hip : "
             print trans1[2] - trans2[2]
             print "=================="

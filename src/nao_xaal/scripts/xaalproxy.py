@@ -17,15 +17,18 @@ class xAALProxy:
         self.app = Engine()
 
 
-    def sendmsg(self, target, action):
+    def sendmsg(self, target, action, key=None, value=None):
         
         addr = config.getConfigInfo(target, "xaaladdr")
 
         msg = Message()
         msg.setTargets([addr])
-        msg.setDevtype('cli.experimental') # ?? todo
+        msg.setDevtype('cli.experimental')
         msg.setMsgtype('request')
         msg.setAction(action)
+        if(key != None and value != None) :
+            body = {key:value}
+            msg.setBody(body)
         msg.setSource(self.uuid)
         msg.setCipher("")
         msg.setSignature()

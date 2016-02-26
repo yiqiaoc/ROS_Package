@@ -18,6 +18,14 @@ class NAO:
         self.verifyState = 0 # 0 no answer, 1 for good situation, 2 for bad situation
         
     def moveToPerson(self):
+        # disable word recognition before walking        
+        stop = rospy.ServiceProxy('stop_recognition',Empty)
+        stop()
+        
+        rospy.wait_for_service('/body_stiffness/enable')
+        stif_enable = rospy.ServiceProxy('/body_stiffness/enable', Empty)
+        stif_enable()
+        
         p = rospy.Publisher('cmd_vel', Twist)
 
         twist = Twist()
@@ -31,6 +39,10 @@ class NAO:
         twist = Twist()
         rospy.loginfo("Stopping!")
         p.publish(twist)
+        
+        alife_disable = rospy.ServiceProxy('/nao_alife/disabled', Empty)
+        
+        alife_disable()
         rospy.loginfo("NAO moves to person")
 
     def verifyPersonState(self, timeout):
@@ -39,11 +51,10 @@ class NAO:
         self.response(timeout)
 
     def say(self, words):
-        for i in range(2):
+        for i in range(1):
             pub = rospy.Publisher('/speech', String, queue_size=10)
             rospy.loginfo(words)
             pub.publish(words)
-            print "NAO say sth"
             rospy.sleep(5)
         
     

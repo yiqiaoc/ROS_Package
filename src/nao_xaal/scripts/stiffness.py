@@ -8,10 +8,21 @@ def stiffness():
     rospy.wait_for_service('/body_stiffness/enable')
     print "after wait for service"
     try:
-        enable = rospy.ServiceProxy('/body_stiffness/enable', Empty)
-        disable = rospy.ServiceProxy('/body_stiffness/disable', Empty)
-        enable()
-        # disable()   
+        stif_enable = rospy.ServiceProxy('/body_stiffness/enable', Empty)
+        stif_disable = rospy.ServiceProxy('/body_stiffness/disable', Empty)
+        stif_disable()
+        s = raw_input("after stiffness disable")
+        stif_enable()
+        s = raw_input("after stiffness enable")
+        
+        alife_enable = rospy.ServiceProxy('/nao_alife/solitary', Empty)
+        alife_disable = rospy.ServiceProxy('/nao_alife/disabled', Empty)
+        
+        alife_enable()
+        s = raw_input("after alife enable") 
+        alife_disable()
+        s = raw_input("after alife disable") 
+        
     except rospy.ServiceException, e:
         print "Service call failed : %s" %e
 

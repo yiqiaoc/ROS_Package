@@ -12,7 +12,9 @@ class Kinect:
         self.distance = 1
 
     def fallDetection(self):
-        while self.distance > 0.05:
+        self.resetDistance()
+
+        while self.distance > 0.15:
             print "distance h of neck and hip ", self.distance
             try:
                 (trans1, rot1) = self.listener.lookupTransform('/openni_depth_frame', '/neck_1', rospy.Time(0))
@@ -26,3 +28,6 @@ class Kinect:
 
         rospy.loginfo("Fall detected!")
         return True
+
+    def resetDistance(self):
+        self.distance = 1
