@@ -65,15 +65,18 @@ class Controller:
         self.smartDeviceAction("lamp3", "on")
 	self.nao.say("porte ouverte, volet remonte")
         self.smartDeviceAction("switch", "off")
-	self.nao.say("l'electricite coupe")
-	self.sendMail()
-	self.nao.say("mail envoye")
+	self.nao.say("j'ai eteint l'electricite")
+        try:
+            self.sendMail()
+        except:
+            print "mail send failed"
+	self.nao.say("j'ai envoye le mail a vos proches")
         self.smartDeviceAction("mobilephone","inform", "msg", "J'ai detecte un probleme. Votre ami a fait un malaise. Venez l'aider.")
 	self.nao.say("message vocal envoye")
         
 
-    def smartDeviceAction(self, device, action):
-        self.xaalproxy.sendmsg(device, action)
+    def smartDeviceAction(self, device, action, key=None, value=None):
+        self.xaalproxy.sendmsg(device, action, key, value)
 
 
 if __name__== '__main__':

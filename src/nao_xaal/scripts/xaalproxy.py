@@ -46,3 +46,8 @@ if __name__ == '__main__':
     proxy = xAALProxy()
     proxy.sendmsg("shutterleft","up")
     proxy.sendmsg("shutterright","up")
+    proxy.sendmsg("lamp1", "off")
+    proxy.sendmsg("lamp2", "off")
+    proxy.sendmsg("lamp3", "off")
+    proxy.sendmsg("switch", "off")
+    #proxy.sendmsg("mobilephone","inform", "msg", "J'ai detecte un probleme. Votre ami a fait un malaise. Venez l'aider.")
